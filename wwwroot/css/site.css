@@ -1,0 +1,39 @@
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+        
+    }
+}
+body {
+    background-color: rgb(216,225, 218);
+}
+.img{
+    background-image: url(..//image/main.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.text-center {
+    font-size: 30px;
+    
+}
+.btn {
+    font-size: 10px;
+    padding: 30px 10px;
+}
+.td{
+    margin-right: 40px;
+}
+.dmy {
+    margin-right: 100px;
+}
+#dt {
+    margin-right: 135px;
+}
+table, th, td {
+    border: 1px solid black;
+}

@@ -1,0 +1,30 @@
+﻿@model AccountDataModel
+
+@{
+    ViewData["Title"] = "Home Page";
+    int month = DateTime.Now.Month + 1;
+    int year = DateTime.Now.Year;
+    if (month > 12)
+    {
+        year++;
+        month = 1;
+    }
+
+    int days = DateTime.DaysInMonth(year, month);
+    int day = days - DateTime.Now.Day;
+    int hour = 24 - DateTime.Now.Hour;
+    int minute = 60 - DateTime.Now.Hour;
+    string ttnm = day.ToString() + " дні " + hour.ToString() + ":" + minute.ToString();
+
+  
+}
+<body class="img">
+    <div class="text-center">
+        <p> @ttnm </p>
+    </div>
+    <button class="btn" onclick="location.href='@Url.Action("Review","Home")'"> ПЕРЕГЛЯНУТИ ІСНУЮЧІ ДОКУМЕНТИ </button>
+
+    <button class="btn" onclick="location.href='@Url.Action("Add","Home")'"> ДОДАТИ НОВИЙ ДОКУМЕНТ </button>
+
+
+</body>

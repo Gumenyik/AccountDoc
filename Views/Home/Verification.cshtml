@@ -1,0 +1,16 @@
+﻿@model AccountDataModel
+@{
+
+}
+
+@using (Html.BeginForm("Verification", "Home", FormMethod.Post, new{id = "form2"}))
+{
+
+    <label>ВЕРИФІКАЦІЯ АДРЕСИ ЕЛЕКТРОННОЇ ПОШТИ:</label>
+    <br>
+    @Html.TextBoxFor(m => m.Code)
+}
+
+<button type="submit" form="form2"> Додати документ </button>
+
+<button onclick="location.href='@Url.Action("Add","Home")'"> Назад </button>

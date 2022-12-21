@@ -1,0 +1,14 @@
+﻿@model AccountDataModel
+@{
+    
+
+}
+<p1> @ViewData["Name"] </p1>
+<br />
+<br />
+<p1> Зображення документа </p1>
+<br />
+<img src="..//image/de.jpg" alt="DExist" width="100" height="150">
+<br />
+<br />
+<button type="button" onclick="location.href='@Url.Action("Review","Home")'"> Повернутися на попередню сторінку </button>

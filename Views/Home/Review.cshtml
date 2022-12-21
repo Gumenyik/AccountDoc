@@ -1,0 +1,50 @@
+﻿@{
+    ViewData["Title"] = "Review";
+    string sqlConnectString = "Data Source=TARAS;Initial Catalog=AccountData;Integrated Security=True"; ;
+    string sqlSelect = "SELECT * FROM Data";
+    SqlDataAdapter da = new SqlDataAdapter(sqlSelect, sqlConnectString);
+    DataTable dt = new DataTable();
+    da.Fill(dt);
+
+}
+
+<div><b>Існуючі документи</b><br /></div>  
+<table class="table table-bordered table-responsive table-hover">  
+    <tr>  
+        <th>Порядковий номер</th>  
+        <th>Назва документу </th>  
+        <th>Для кого документ </th>  
+        <th>Тип докуметн за змістом</th>  
+        <th>Емайл-адрес бухгалтера</th>  
+        <th>Дата формування</th>  
+        <th>Попередній перегляд</th>  
+        <th>Кнопка</th>
+    </tr>  
+    @foreach (DataRow row in dt.Rows)
+    {  
+        <tr>
+            <th>@row["ID"]</th>
+            <th>@row["name"]</th>
+            <th>@row["organization"]</th>
+            <th>@row["doctype"]</th>
+            <th>@row["email"]</th>
+            <th>@row["day"] . @row["month"] . @row["year"]</th>
+            <th><img src="..//image/de.jpg" alt="DExist" width="100" height="150"></th>
+            <th>
+                @using (Html.BeginForm("Review", "Home", FormMethod.Post, new { id = "form3" }))
+                {
+                    ViewData["Name"] = row["name"];
+                    <button type="submit" form="form3" onclick="location.href='@Url.Action("DocumentView","Home")'"> Далі </button>
+                }
+                    
+               
+            </th>
+  
+        </tr>  
+    }  
+</table>
+<br />
+<br />
+<br />
+
+<button type="button" onclick="location.href='@Url.Action("Index","Home")'"> Повернутися на головну сторінку </button>

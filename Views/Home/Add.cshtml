@@ -1,0 +1,66 @@
+﻿@model AccountDataModel
+
+@{
+     
+    ViewData["Title"] = "Add";
+    List<string> Acts = new List<string>() { "Кошторис", "Довіреність", "Накладна", "Декларація", "Акт виконаних робіт", "Акт прийому-подачі", "Дефективний акт" };
+
+}
+
+@using (Html.BeginForm("Add", "Home", FormMethod.Post, new{id = "form1"}))
+{
+
+    <label>Назва бухгалтерського документу:</label>
+    <br>
+    <br>
+     @Html.TextBoxFor(m => m.Name)
+     <br>
+    <br>
+    <label>
+        (JPEG (max 200x300), PDF (1 сторінка), TXT,DOC,XLS,PPT):
+    </label>
+    <br>
+    <br>
+    <input type="file" name="ImageData" id="ImageData" onchange="fileCheck(this);" />
+    <br>
+    <br>
+    <label class="td">ТИП ДОКУМЕНТА ЗА ЗМІСТОМ: </label>
+     <label>
+            ЕМЕЙЛ-АДРЕСА БУХГАЛТЕРА:
+     </label><br><br>
+    @Html.DropDownListFor(m => m.Doctype,
+           new SelectList(Acts))
+    <label class="dmy"></label>
+    @Html.TextBoxFor(m => m.Email)
+    <br>
+    <br>
+    <label class="dmy">Для кого документ:</label><br />
+    @Html.RadioButtonFor(m => m.Organiz,"Податкова інспекція")<label> Податкова інспекція</label>
+    <br>
+    @Html.RadioButtonFor(m => m.Organiz,"Податкова поліція")<label> Податкова поліція</label>
+    <br>
+    @Html.RadioButtonFor(m => m.Organiz,"Керівництво підприємства") <label> Керівництво підприємства</label>
+    <br>
+    @Html.RadioButtonFor(m => m.Organiz,"Підприємтво партнер")<label> Підприємтво партнер</label>
+    <br>
+    <br>
+    <label class="dmy">Дата формування документу:</label><br /><br />
+    <label class="dmy">Число:</label>
+    <label class="dmy">Місяць:</label>
+    <label class="dmy">Рік: </label>
+    <br>
+    <br>
+    @Html.TextBoxFor(m => m.Day)
+    @Html.TextBoxFor(m => m.Month)
+    @Html.TextBoxFor(m => m.Year)
+    <br>
+    <br>
+    
+
+}
+
+<button type="submit" form="form1" onclick="location.href='@Url.Action("Verification","Home")'"> Далі </button>
+
+<button  onclick="location.href='@Url.Action("Index","Home")'"> Назад </button>
+
+
