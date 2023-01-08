@@ -96,7 +96,7 @@ namespace AccountDoc.Controllers
 
             SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
             smtp.UseDefaultCredentials = false;
-            smtp.Credentials = new NetworkCredential("taras181716@gmail.com", "lmijlgcmzlsqhsch");
+            smtp.Credentials = new NetworkCredential("taras181716@gmail.com", "**********");
             smtp.EnableSsl = true;
             smtp.Send(msg);
         }
